@@ -24,3 +24,4 @@ class DataFaker:
     def get_data_list(self):
         return self.__data_list
 
+
