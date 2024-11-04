@@ -8,9 +8,6 @@ class MainPage:
     __LOG_IN_BUTTON = (By.XPATH, '//input[@type="submit"]')
     __REGISTER_BUTTON = (By.XPATH, '//a[text()="Register"]')
 
-    def start_page(self, driver: webdriver.Chrome, value: str):
-        driver.get(value)
-
     def enter_login(self, driver: webdriver.Chrome, value: str):
         driver.find_element(*self.__USERNAME_FIELD).send_keys(value)
 
