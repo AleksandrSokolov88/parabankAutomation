@@ -13,7 +13,7 @@ class Driver:
 
     def __init__(self):
         options = Options()
-        with open("../../config/config_driver.yaml", "r") as file:
+        with open("config/config_driver.yaml", "r") as file:
             data = yaml.safe_load(file)
         if data:
             for i in data.split():

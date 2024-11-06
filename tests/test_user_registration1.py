@@ -1,23 +1,14 @@
 import time
 import pytest
-from tests.UI.utils.utils_data_read import GetData
 from driver_creator import Driver
 from pom.main_page import MainPage
 from pom.register_page import RegisterPage
-from data.data_user_faker import DataFaker
 
 
 class Test1UserRegistration:
-    # Get test data from file/Check datatype
-
-    # Add config file to config test ( what test data and how much )
-
-    #data = GetData().get_data("data/data_user.yaml")
-    data = DataFaker().get_data_list()
-
-    @pytest.mark.parametrize("data", data)
     def test1_user_registration(self, data):
         # Create driver
+        print(f"Data received in test: {data}")
         driver = Driver().get_driver()
 
         # Create main_page instance
