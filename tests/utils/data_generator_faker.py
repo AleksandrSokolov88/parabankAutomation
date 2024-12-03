@@ -1,0 +1,2 @@
+class DataFaker:
+    pass

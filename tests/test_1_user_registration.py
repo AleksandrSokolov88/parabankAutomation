@@ -6,13 +6,12 @@ from pom.register_page import RegisterPage
 
 
 class Test1UserRegistration:
-    def test1_user_registration(self, data):
+    def test_1_user_registration(self, data):
         # Create driver
-        print(f"Data received in test: {data}")
         driver = Driver().get_driver()
 
         # Create main_page instance
-        main_page = MainPage()
+        main_page = MainPage(driver)
 
         # Create register_page instance
         register_page = RegisterPage(driver)
@@ -21,7 +20,7 @@ class Test1UserRegistration:
         driver.get(Driver.BASE_URL)
 
         # Click register button
-        main_page.click_register_button(driver)
+        main_page.click_register_button()
         time.sleep(2)
 
         # Enter First name
@@ -30,7 +29,7 @@ class Test1UserRegistration:
         # Enter Last name
         register_page.enter_last_name(data["last_name"])
 
-        # Enter address
+        # Enter Address
         register_page.enter_address(data["address"])
 
         # Enter City
@@ -39,7 +38,7 @@ class Test1UserRegistration:
         # Enter State
         register_page.enter_state(data["state"])
 
-        # Enter zip code
+        # Enter Zip code
         register_page.enter_zip_code(data["zip_code"])
 
         # Enter Phone
@@ -48,13 +47,13 @@ class Test1UserRegistration:
         # Enter SSN
         register_page.enter_ssn(data["ssn"])
 
-        # Enter username
+        # Enter Username
         register_page.enter_username(data["username"])
 
-        # Enter password
+        # Enter Password
         register_page.enter_password(data["password"])
 
-        # Confirm password
+        # Confirm Password
         register_page.enter_confirm(data["password"])
         time.sleep(4)
         driver.quit()

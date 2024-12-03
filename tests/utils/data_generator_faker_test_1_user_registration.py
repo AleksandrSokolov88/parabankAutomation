@@ -21,7 +21,6 @@ class DataFaker:
             }
             self.__data_list.append(data_dict)
 
-    def get_data_list(self):
-        return self.__data_list
-
-
+    def write_data_to_file(self):
+        with open("tests/data/data_faker_test_1_user_registration.yaml", "w") as file:
+            file.write(str(self.__data_list))

@@ -1,3 +1,10 @@
-# Add config file to config test ( what test data and how much )
-test1_user_registration: Yaml
-Test2: Yaml
+test_1_user_registration: Faker 1
+test_2_user_login: Yaml
+
+# test1_user_registration: use_file=False
+#                          amount_faker=2
+
+
+# Убрать создание файлов
+#Датафейкер дженерал для всех
+# иЗМЕНИТЬ ЭТОТ КОНФИГ ФАЙЛ
