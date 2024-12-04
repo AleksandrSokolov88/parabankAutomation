@@ -1,5 +1,4 @@
 import time
-import pytest
 from driver_creator import Driver
 from pom.main_page import MainPage
 from pom.register_page import RegisterPage
@@ -21,7 +20,6 @@ class Test1UserRegistration:
 
         # Click register button
         main_page.click_register_button()
-        time.sleep(2)
 
         # Enter First name
         register_page.enter_first_name(data["first_name"])
@@ -42,18 +40,23 @@ class Test1UserRegistration:
         register_page.enter_zip_code(data["zip_code"])
 
         # Enter Phone
-        register_page.enter_phone(data["phone"])
+        register_page.enter_phone(data["phone_number"])
 
         # Enter SSN
         register_page.enter_ssn(data["ssn"])
 
         # Enter Username
-        register_page.enter_username(data["username"])
+        register_page.enter_username(data["user_name"])
 
         # Enter Password
         register_page.enter_password(data["password"])
 
         # Confirm Password
         register_page.enter_confirm(data["password"])
-        time.sleep(4)
+        # CLick Register Button
+        register_page.click_register()
+        time.sleep(2)
+        # Assertion
+        assert (register_page.get_value_registration_success() ==
+                "Your account was created successfully. You are now logged in.")
         driver.quit()

@@ -1,20 +1,26 @@
+import pytest
 import yaml
-from tests.utils.utils_yaml_faker_data_getter import DataGetter
-from tests.utils.data_generator_faker_test_1_user_registration import DataFaker
-from tests.utils.data_generator_faker_test_2_user_login import DataFaker
+from tests.utils.data_getter_yaml import DataGetter
+from tests.utils.data_generator_faker import DataFaker
 from pytest import Metafunc
+from tests.utils.parabank_database import Database
 
 
 def pytest_generate_tests(metafunc: Metafunc):
-    test_name = metafunc.definition.name
+    test_case_name = metafunc.definition.name
     with open("config/config_tests.yaml", "r", encoding="utf-8") as file:
-        my_dict: dict = yaml.safe_load(file)
-    if test_name in my_dict.keys():
-        if my_dict[test_name] == "Yaml":
-            prefix = "yaml"
+        test_cases_names: dict = yaml.safe_load(file)
+    if test_case_name in test_cases_names.keys():
+        if test_cases_names[test_case_name] == "Yaml":
+            data = DataGetter().get_data(f"tests/data/data_{test_case_name}.yaml")
         else:
-            quantity_of_test_data = my_dict[test_name].split()
-            DataFaker(int(quantity_of_test_data[-1])).write_data_to_file()
-            prefix = "faker"
-        data = DataGetter().get_data(f"tests/data/data_{prefix}_{test_name}.yaml")
+            amount_of_test_data: str = test_cases_names[test_case_name]
+            data = DataFaker(test_case_name, int(amount_of_test_data[-1])).get_data()
     metafunc.parametrize("data", data)
+
+
+@pytest.fixture(scope="class", autouse=True)
+def setup_database():
+    Database.start_database()
+    yield
+    Database.clear_database()

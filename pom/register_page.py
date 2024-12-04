@@ -9,15 +9,18 @@ class RegisterPage:
 
     __FIRST_NAME_FIELD = (By.XPATH, '//input[@id="customer.firstName"]')
     __LAST_NAME_FIELD = (By.XPATH, '//input[@id="customer.lastName"]')
-    __ADDRESS = (By.XPATH, '//input[@id="customer.address.street"]')
-    __CITY = (By.XPATH, '//input[@id="customer.address.city"]')
-    __STATE = (By.XPATH, '//input[@id="customer.address.state"]')
-    __ZIP_CODE = (By.XPATH, '//input[@id="customer.address.zipCode"]')
-    __PHONE = (By.XPATH, '//input[@id="customer.phoneNumber"]')
-    __SSN = (By.XPATH, '//input[@id="customer.ssn"]')
-    __USERNAME = (By.XPATH, '//input[@id="customer.username"]')
-    __PASSWORD = (By.XPATH, '//input[@id="customer.password"]')
-    __CONFIRM = (By.XPATH, '//input[@id="repeatedPassword"]')
+    __ADDRESS_FIELD = (By.XPATH, '//input[@id="customer.address.street"]')
+    __CITY_FIELD = (By.XPATH, '//input[@id="customer.address.city"]')
+    __STATE_FIELD = (By.XPATH, '//input[@id="customer.address.state"]')
+    __ZIP_CODE_FIELD = (By.XPATH, '//input[@id="customer.address.zipCode"]')
+    __PHONE_FIELD = (By.XPATH, '//input[@id="customer.phoneNumber"]')
+    __SSN_FIELD = (By.XPATH, '//input[@id="customer.ssn"]')
+    __USERNAME_FIELD = (By.XPATH, '//input[@id="customer.username"]')
+    __PASSWORD_FIELD = (By.XPATH, '//input[@id="customer.password"]')
+    __CONFIRM_FIELD = (By.XPATH, '//input[@id="repeatedPassword"]')
+    __REGISTER_BUTTON = (By.XPATH, '//input[@value="Register"]')
+    __REGISTRATION_SUCCESS = (By.XPATH, '//div[@id="rightPanel"]/p')
+    __LOG_OUT_BUTTON = (By.XPATH, '//a[text()="Log Out"]')
 
     def enter_first_name(self, value):
         self.__driver.find_element(*self.__FIRST_NAME_FIELD).send_keys(value)
@@ -26,28 +29,37 @@ class RegisterPage:
         self.__driver.find_element(*self.__LAST_NAME_FIELD).send_keys(value)
 
     def enter_address(self, value):
-        self.__driver.find_element(*self.__ADDRESS).send_keys(value)
+        self.__driver.find_element(*self.__ADDRESS_FIELD).send_keys(value)
 
     def enter_city(self, value):
-        self.__driver.find_element(*self.__CITY).send_keys(value)
+        self.__driver.find_element(*self.__CITY_FIELD).send_keys(value)
 
     def enter_state(self, value):
-        self.__driver.find_element(*self.__STATE).send_keys(value)
+        self.__driver.find_element(*self.__STATE_FIELD).send_keys(value)
 
     def enter_zip_code(self, value):
-        self.__driver.find_element(*self.__ZIP_CODE).send_keys(value)
+        self.__driver.find_element(*self.__ZIP_CODE_FIELD).send_keys(value)
 
     def enter_phone(self, value):
-        self.__driver.find_element(*self.__PHONE).send_keys(value)
+        self.__driver.find_element(*self.__PHONE_FIELD).send_keys(value)
 
     def enter_ssn(self, value):
-        self.__driver.find_element(*self.__SSN).send_keys(value)
+        self.__driver.find_element(*self.__SSN_FIELD).send_keys(value)
 
     def enter_username(self, value):
-        self.__driver.find_element(*self.__USERNAME).send_keys(value)
+        self.__driver.find_element(*self.__USERNAME_FIELD).send_keys(value)
 
     def enter_password(self, value):
-        self.__driver.find_element(*self.__PASSWORD).send_keys(value)
+        self.__driver.find_element(*self.__PASSWORD_FIELD).send_keys(value)
 
     def enter_confirm(self, value):
-        self.__driver.find_element(*self.__CONFIRM).send_keys(value)
+        self.__driver.find_element(*self.__CONFIRM_FIELD).send_keys(value)
+
+    def click_register(self):
+        self.__driver.find_element(*self.__REGISTER_BUTTON).click()
+
+    def get_value_registration_success(self):
+        return self.__driver.find_element(*self.__REGISTRATION_SUCCESS).text
+
+    def click_log_out_button(self):
+        self.__driver.find_element(*self.__LOG_OUT_BUTTON).click()

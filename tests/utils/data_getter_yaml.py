@@ -11,7 +11,3 @@ class DataGetter:
             with open(path_to_file, "r") as file:
                 self.__data = yaml.safe_load(file)
             return self.__data
-        else:
-            with open(path_to_file, "r") as file:
-                self.__data = file.read()
-            return self.__data

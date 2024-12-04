@@ -1,10 +1,9 @@
-test_1_user_registration: Faker 1
+test_1_user_registration: Yaml
 test_2_user_login: Yaml
 
 # test1_user_registration: use_file=False
 #                          amount_faker=2
 
 
-# Убрать создание файлов
-#Датафейкер дженерал для всех
-# иЗМЕНИТЬ ЭТОТ КОНФИГ ФАЙЛ
+# ВОпросы 1 тест дата для теста 1 и теста 2 одинаковы
+#         2 проверка для второго теста. Надо ли вводить спецом страницу с 1 элементом
