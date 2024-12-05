@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 
 
-class Accounts_overview:
+class AccountsOverview:
 
     def __init__(self, driver: webdriver.Chrome):
         self.__driver = driver

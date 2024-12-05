@@ -1,0 +1,33 @@
+# Info for Register
+- first_name: Alex
+  last_name: Popins
+  address: Husink Rud
+  city: Borcha
+  state: None
+  zip_code: 0000
+  phone_number: +381434343434
+  ssn: 000000000000000000
+  user_name: Peter
+  password: piano
+
+- first_name: 1
+  last_name: 1
+  address: 111
+  city: 1111
+  state: 111
+  zip_code: 111
+  phone_number: 1111
+  ssn: 1111
+  user_name: Alex
+  password: pi
+
+- first_name: "0000000000000000000"
+  last_name: "0000000000000000000000"
+  address: 00000000000000000000
+  city: 00000000000000000000
+  state: 00000000000000000000
+  zip_code: 000000000000000
+  phone_number: 00000000000000000
+  ssn: 0000000000000000000000
+  user_name: Alexbbbbbbbbbbbb
+  password: pibbbbbbbbbbbbbbbbbb

@@ -1,22 +1,15 @@
 import time
-from driver_creator import Driver
 from pom.main_page import MainPage
 from pom.register_page import RegisterPage
 
 
 class Test1UserRegistration:
-    def test_1_user_registration(self, data):
-        # Create driver
-        driver = Driver().get_driver()
-
+    def test_1_user_registration(self, data,driver):
         # Create main_page instance
         main_page = MainPage(driver)
 
         # Create register_page instance
         register_page = RegisterPage(driver)
-
-        # Go to BASE_URL
-        driver.get(Driver.BASE_URL)
 
         # Click register button
         main_page.click_register_button()
@@ -59,4 +52,3 @@ class Test1UserRegistration:
         # Assertion
         assert (register_page.get_value_registration_success() ==
                 "Your account was created successfully. You are now logged in.")
-        driver.quit()

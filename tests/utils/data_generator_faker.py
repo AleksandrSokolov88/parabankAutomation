@@ -13,6 +13,7 @@ class DataFaker:
         with open(f"tests/data/data_{test_name}.yaml", "r", encoding="utf-8") as file:
             data_from_file = yaml.safe_load(file)
             keys_for_faker: dict = data_from_file[0]
+            self.__data.clear()
             for _ in range(amount_of_test_data):
                 temp_dict = {}
                 for key in keys_for_faker.keys():
