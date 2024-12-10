@@ -1,4 +1,3 @@
-import time
 from pom.main_page import MainPage
 from steps.usersteps import UserSteps
 from pom.accounts_overview import AccountsOverview

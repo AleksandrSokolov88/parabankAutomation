@@ -1,5 +1,3 @@
-import time
-
 import allure
 
 from pom.main_page import MainPage
@@ -7,6 +5,7 @@ from pom.register_page import RegisterPage
 
 
 class Test1UserRegistration:
+    @allure.testcase("https://app.qase.io/project/PARABANK?case=1", "test1")
     def test_1_user_registration(self, data, driver):
         # Create main_page instance
         main_page = MainPage(driver)
@@ -55,4 +54,4 @@ class Test1UserRegistration:
 
         # Assertion
         assert (register_page.get_value_registration_success() ==
-                "Your account was created successfully. You are now logged in.")
+                "Your account was created successfully. You are now logged in")

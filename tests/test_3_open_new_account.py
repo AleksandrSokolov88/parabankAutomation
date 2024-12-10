@@ -1,4 +1,3 @@
-import time
 from steps.usersteps import UserSteps
 from pom.open_new_account import NewAccount
 from selenium.webdriver.support import expected_conditions

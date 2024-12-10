@@ -1,6 +1,6 @@
 from pom.register_page import RegisterPage
 from pom.main_page import MainPage
-import time
+
 
 
 class UserSteps:
@@ -24,7 +24,6 @@ class UserSteps:
         self.register_page.enter_confirm(self.data["password"])
         self.register_page.click_register()
         self.register_page.click_log_out_button()
-        time.sleep(2)
 
     def log_in_user(self):
         self.main_page.enter_username(self.data["user_name"])
