@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.support.select import By
 from selenium import webdriver
 
@@ -22,9 +23,11 @@ class RegisterPage:
     __REGISTRATION_SUCCESS = (By.XPATH, '//div[@id="rightPanel"]/p')
     __LOG_OUT_BUTTON = (By.XPATH, '//a[text()="Log Out"]')
 
+    @allure.step("enter first name")
     def enter_first_name(self, value):
         self.__driver.find_element(*self.__FIRST_NAME_FIELD).send_keys(value)
 
+    @allure.step("enter last name")
     def enter_last_name(self, value):
         self.__driver.find_element(*self.__LAST_NAME_FIELD).send_keys(value)
 

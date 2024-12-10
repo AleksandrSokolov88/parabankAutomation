@@ -5,6 +5,11 @@ from tests.utils.data_generator_faker import DataFaker
 from pytest import Metafunc
 from tests.utils.parabank_database import Database
 from driver_creator import Driver
+from pytest import Item
+from pytest import CallInfo
+import allure
+import os
+import shutil
 
 
 def pytest_generate_tests(metafunc: Metafunc):
@@ -20,6 +25,13 @@ def pytest_generate_tests(metafunc: Metafunc):
     metafunc.parametrize("data", data)
 
 
+@pytest.fixture(scope="session", autouse=True)
+def clear_allure_folder():
+    if os.path.exists("allure-results"):
+        shutil.rmtree("allure-results")
+    os.mkdir("allure-results")
+
+
 @pytest.fixture(scope="class", autouse=True)
 def setup_database():
     Database.start_database()
@@ -33,3 +45,16 @@ def driver():
     driver.get(Driver.BASE_URL)
     yield driver
     driver.quit()
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item: Item, call: CallInfo):
+    outcome = yield
+    result: pytest.TestReport = outcome.get_result()
+    if result.outcome == "failed":
+        driver = item.funcargs['driver']
+        screenshot_name = "screenshot_error.jpg"
+        driver.save_screenshot(screenshot_name)
+        with open(screenshot_name, "rb") as file:
+            allure.attach(file.read(), attachment_type=allure.attachment_type.JPG)
+        os.remove(screenshot_name)

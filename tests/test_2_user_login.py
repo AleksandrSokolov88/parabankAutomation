@@ -25,6 +25,6 @@ class Test2UserLogin:
 
         # CLick Log in button
         main_page.click_login_button()
-        time.sleep(2)
+
         # Assertion
         assert accounts_overview.is_accounts_overview_displayed()

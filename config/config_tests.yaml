@@ -1,6 +1,6 @@
-test_1_user_registration: Faker 1
-test_2_user_login: Faker 1
-test_3_open_new_account: Faker 1
+test_1_user_registration: Faker 8
+test_2_user_login: Faker 8
+test_3_open_new_account: Faker 8
 
 # test1_user_registration: use_file=False
 #                          amount_faker=2
