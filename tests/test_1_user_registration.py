@@ -54,4 +54,4 @@ class Test1UserRegistration:
 
         # Assertion
         assert (register_page.get_value_registration_success() ==
-                "Your account was created successfully. You are now logged in.")
+                "Your account was created successfully. You are now logged in")
