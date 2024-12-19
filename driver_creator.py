@@ -20,8 +20,8 @@ class Driver:
         if data:
             for i in data.split():
                 options.add_argument(i)
-        #chromedriver_path = os.path.join(os.getcwd(), 'drivers', 'chromedriver.exe')
-        chromedriver_path = '/var/jenkins_home/workspace/Test/drivers/chromedriver'
+        chromedriver_path = os.path.join(os.getcwd(), 'drivers', 'chromedriver.exe')
+        #chromedriver_path = '/var/jenkins_home/workspace/Test/drivers/chromedriver'
         service = Service(chromedriver_path)
         self.__driver = webdriver.Chrome(service=service, options=options)
 
