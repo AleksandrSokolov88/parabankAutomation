@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import yaml
+import os
 
 
 # Add annotation for driver
@@ -18,7 +20,9 @@ class Driver:
         if data:
             for i in data.split():
                 options.add_argument(i)
-        self.__driver = webdriver.Chrome(options=options)
+        chromedriver_path = os.path.join(os.getcwd(), 'drivers', 'chromedriver.exe')
+        service = Service(chromedriver_path)
+        self.__driver = webdriver.Chrome(service=service, options=options)
 
     def get_driver(self) -> webdriver.Chrome:
         return self.__driver
